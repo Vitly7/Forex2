@@ -21,7 +21,7 @@ import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
-    private SwipeRefreshLayout _swipeRefreshLayout;
+    private SwipeRefreshLayout _swipeRefreshLayout1;
     private RecyclerView _recyclerView1;
 
     @Override
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 ForexAdapter adapter = new ForexAdapter(rates);
                 _recyclerView1.setLayoutManager(layoutManager);
                 _recyclerView1.setAdapter(adapter);
-                _swipeRefreshLayout.setRefreshing(false);
+                _swipeRefreshLayout1.setRefreshing(false);
             }
 
             @Override
@@ -76,8 +76,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initSwipeRefreshLayout() {
-        _swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout1);
-        _swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        _swipeRefreshLayout1 = findViewById(R.id.swipeRefreshLayout1);
+        _swipeRefreshLayout1.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 bindRecyclerView();

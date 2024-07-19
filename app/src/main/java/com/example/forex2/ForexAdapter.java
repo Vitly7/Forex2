@@ -33,12 +33,16 @@ public class ForexAdapter extends RecyclerView.Adapter<ForexViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ForexViewHolder holder, int position) {
         try {
-            String kode = _names.getString(position);
+            String kode = _names.get(position).toString();
             holder.kodeTextView.setText(kode);
 
             double kurs = _rates.getDouble(kode);
+            double USD = _rates.getDouble("USD");
+            double IDR = _rates.getDouble("IDR");
+            double baseIDR = USD/kurs*IDR;
+
             DecimalFormat decimalFormat = new DecimalFormat("###,##0.##");
-            String kurs_2 = decimalFormat.format(kurs);
+            String kurs_2 = decimalFormat.format(baseIDR);
             holder.kursTextView.setText(kurs_2);
         } catch (JSONException e) {
             Log.e("*tw*", e.getMessage());
