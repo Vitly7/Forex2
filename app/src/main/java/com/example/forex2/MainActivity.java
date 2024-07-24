@@ -89,7 +89,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setTimestamp(long timestamp) {
         SimpleDateFormat format = new SimpleDateFormat("yyy-MM-dd HH:mm:ss", Locale.getDefault());
-        format.setTimeZone(TimeZone.getTimeZone(timestamp * 1000));
+        format.setTimeZone(TimeZone.getTimeZone("Asia/Jakarta"));
+        
         _timestampTextView.setText("Tanggal & Waktu (UTC): " + dateTime);
     }
 
