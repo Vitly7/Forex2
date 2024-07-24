@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                setTimestamps(timestamp);
+                setTimestamp(timestamp);
 
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
                 ForexAdapter adapter = new ForexAdapter(rates);
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     private void setTimestamp(long timestamp) {
         SimpleDateFormat format = new SimpleDateFormat("yyy-MM-dd HH:mm:ss", Locale.getDefault());
         format.setTimeZone(TimeZone.getTimeZone("Asia/Jakarta"));
-        
+        String dateTime = format.format(new Date(timestamp * 1000));
         _timestampTextView.setText("Tanggal & Waktu (UTC): " + dateTime);
     }
 
